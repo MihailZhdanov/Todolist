@@ -2,11 +2,8 @@ import { ChangeEvent, useState } from "react";
 import { FilterValuesType } from "./App";
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
-<<<<<<< HEAD
 import { IconButton, Button, Checkbox } from "@mui/material";
 import { Delete } from "@mui/icons-material";
-=======
->>>>>>> 4a711ee562ce5d073d0bc61ea0589edaf8249e1a
 
 export type TaskType = {
     id: string;
@@ -25,10 +22,7 @@ type PropsType = {
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void;
     id: string;
     removeTodolist: (todolistId: string) => void
-<<<<<<< HEAD
     changeTodolistTitle: (id: string, newTitle: string) => void;
-=======
->>>>>>> 4a711ee562ce5d073d0bc61ea0589edaf8249e1a
 };
 
 export function Todolist(props: PropsType) {
@@ -38,34 +32,23 @@ export function Todolist(props: PropsType) {
     const removeTodolist = () => {
         props.removeTodolist(props.id)
     }
-<<<<<<< HEAD
     const changeTodolistTitle = (newTitle: string) => {
         props.changeTodolistTitle(props.id, newTitle)
     }
-=======
->>>>>>> 4a711ee562ce5d073d0bc61ea0589edaf8249e1a
 
-    const addTask = (title: string) =>{
+    const addTask = (title: string) => {
         props.addTask(title, props.id)
     }
 
     return (
         <div>
-<<<<<<< HEAD
-            <h3><EditableSpan title={props.title} onChange={changeTodolistTitle}/>
+            <h3><EditableSpan title={props.title} onChange={changeTodolistTitle} />
                 <IconButton onClick={removeTodolist}>
-                    <Delete/>
+                    <Delete />
                 </IconButton>
             </h3>
-            <AddItemForm addItem={addTask}/>
+            <AddItemForm addItem={addTask} />
             <div>
-=======
-            <h3>{props.title}
-                <button onClick={removeTodolist}>X</button>
-            </h3>
-            <AddItemForm addItem={addTask}/>
-            <ul>
->>>>>>> 4a711ee562ce5d073d0bc61ea0589edaf8249e1a
                 {
                     props.tasks.map(e => {
                         const onRemoveHandler = () => {
@@ -78,12 +61,11 @@ export function Todolist(props: PropsType) {
                             props.changeTaskTitle(e.id, newValue, props.id);
                         };
                         return (
-<<<<<<< HEAD
                             <div key={e.id} className={e.isDone ? "is-done" : ""}>
                                 <Checkbox color="secondary" onChange={onChangeStatusHandler} checked={e.isDone} />
-                                <EditableSpan title={e.title} onChange={onChangeTitleHandler}/>
+                                <EditableSpan title={e.title} onChange={onChangeTitleHandler} />
                                 <IconButton onClick={onRemoveHandler}>
-                                    <Delete/>
+                                    <Delete />
                                 </IconButton>
                             </div>
                         );
@@ -97,24 +79,6 @@ export function Todolist(props: PropsType) {
                     onClick={onActiveClickHandler}>Active</Button>
                 <Button variant={props.filter === "Complete" ? "contained" : "text"}
                     onClick={onCompleteClickHandler}>Complete</Button>
-=======
-                            <li key={e.id} className={e.isDone ? "is-done" : ""}>
-                                <input type="checkbox" onChange={onChangeHandler} checked={e.isDone} />
-                                <EditableSpan title={e.title} onChange={onChangeTitleHandler}/>
-                                <button onClick={onRemoveHandler}>X</button>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-            <div>
-                <button className={props.filter === "All" ? "active-filter" : ""}
-                    onClick={onAllClickHandler}>All</button>
-                <button className={props.filter === "Active" ? "active-filter" : ""}
-                    onClick={onActiveClickHandler}>Active</button>
-                <button className={props.filter === "Complete" ? "active-filter" : ""}
-                    onClick={onCompleteClickHandler}>Complete</button>
->>>>>>> 4a711ee562ce5d073d0bc61ea0589edaf8249e1a
             </div>
         </div>
     );
